@@ -1,0 +1,85 @@
+<ion-header [translucent]="true" mode="ios" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title> Technology news </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" mode="ios">
+  <ion-header collapse="condense">
+    <ion-toolbar class="ion-padding-horizontal">
+      <h1 style="font-size: 26px; font-weight: 600">
+        What will you <br />read today
+      </h1>
+    </ion-toolbar>
+    <ion-searchbar
+      mode="md"
+      class="ion-padding-horizontal"
+      placeholder="Find Headers"
+      inputmode="text"
+      [(ngModel)]="searchText"
+      (ionChange)="search()"
+      showCancelButton="never"
+    ></ion-searchbar>
+  </ion-header>
+
+  <ion-spinner name="circular" *ngIf="!articlesAreLoaded"></ion-spinner>
+  <!-- <ion-grid fixed *ngIf="!articlesIsLoaded">
+    <ion-row>
+      <ion-col
+        *ngFor="let var of [1,2,3,4,5,6,7,8,9,10,11,12]; let i = index"
+        size="12"
+        size-lg="6"
+      >
+        <ion-card class="ion-margin-horizontal" style="margin-block: 10px">
+          <ion-skeleton-text
+            animated
+            style="
+              width: 100%;
+              height: 177px;
+              margin-top: 0px;
+              margin-bottom: 16px;
+            "
+          ></ion-skeleton-text>
+          <ion-skeleton-text
+            animated
+            style="width: 90%; height: 45px; margin-bottom: 16px"
+            class="ion-margin-horizontal"
+          ></ion-skeleton-text>
+          <ion-skeleton-text
+            animated
+            style="width: 90%; height: 25px; margin-bottom: 16px"
+            class="ion-margin-horizontal"
+          ></ion-skeleton-text>
+          <ion-skeleton-text
+            animated
+            style="width: 30%; height: 15px; margin-bottom: 16px"
+            class="ion-margin-horizontal"
+          ></ion-skeleton-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <app-articles [articles]="filtredArticles"></app-articles>
+
+  <ion-infinite-scroll
+    *ngIf="!endline"
+    threshold="25%"
+    position="bottom"
+    (ionInfinite)="loadData($event)"
+  >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-list *ngIf="endline" class="ion-margin" mode="ios">
+    <ion-item>
+      <ion-label class="ion-text-center"
+        >LLegaste al final de la sección :c</ion-label
+      >
+    </ion-item>
+  </ion-list>
+</ion-content>

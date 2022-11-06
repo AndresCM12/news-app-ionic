@@ -1,0 +1,29 @@
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  overflow: none;
+}
+
+ion-segment {
+  position: sticky;
+  bottom: -1px;
+  --background: var(--ion-tab-bar-background);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+ion-spinner {
+  --color: var(--ion-highlight);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+ion-searchbar {
+  --border-radius: 20px;
+  --placeholder-font-weight: 600;
+  --placeholder-opacity: 0.5;
+  --box-shadow: none;
+  --icon-color: var(--ion-text);
+  --placeholder-color: var(--ion-highlight);
+}

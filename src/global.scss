@@ -1,0 +1,106 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+// Card
+
+.text-primary {
+  color: var(--ion-highlight);
+}
+ion-content {
+  --background: var(--ion-bg);
+}
+
+.toolbar-background {
+  background-color: var(--ion-bg);
+  ion-title {
+    --color: var(--ion-text);
+  }
+}
+ion-card {
+  --background: var(--ion-bg-card);
+}
+ion-card-title {
+  color: white;
+}
+ion-icon {
+  color: var(--ion-text);
+}
+ion-tab-bar {
+  --background: var(--ion-bg-contrast);
+  --color-focused: var(--ion-highlight);
+}
+ion-tab-button {
+  --color-selected: var(--ion-highlight);
+}
+
+ion-segment-button {
+  --background: var(--ion-bg-contrast);
+  --color-checked: var(--ion-text);
+  --color-focused: var(-ion-text);
+  --color-hover: var(-ion-text);
+}
+ion-action-sheet {
+  --backdrop-opacity: 0.5;
+  --background: var(--ion-bg-contrast);
+  --button-background: var(--ion-bg-contrast);
+  --button-background-activated: var(--ion-text);
+  --button-background-selected: var(--ion-text);
+  --button-color: var(--ion-text);
+  --button-color-activated: var(--ion-text);
+  --button-color-focused: var(--ion-text);
+  --button-color-hover: var(--ion-text);
+  --button-color-selected: var(--ion-text);
+  --color: var(--ion-text);
+}
+.action-sheet-button-inner.sc-ion-action-sheet-ios {
+  color: white;
+}
+.action-sheet-group.sc-ion-action-sheet-ios {
+  background-color: var(--ion-bg);
+  opacity: 1;
+}
+
+ion-tab {
+  animation: all 0.5s ease-in-out;
+}
+ion-tab-button ion-label{
+  display: none;
+}
+ion-tab-button.tab-selected ion-label{
+  display: flex;
+}
+ion-content ion-title{
+  background: var(--ion-bg) !important;
+}
+ion-content ion-toolbar{
+  padding-top: 0px !important;
+}
+
+ion-toolbar {
+  --background: var(--ion-bg) !important;
+}
+//animation

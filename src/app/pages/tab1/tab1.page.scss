@@ -1,0 +1,20 @@
+ion-searchbar {
+  --border-radius: 20px;
+  --placeholder-font-weight: 600;
+  --placeholder-opacity: 0.5;
+  --box-shadow: none;
+  --icon-color: var(--ion-text);
+  --placeholder-color: var(--ion-highlight);
+}
+
+ion-spinner {
+  --color: var(--ion-highlight);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+h1{
+  margin-top: 0px;
+}

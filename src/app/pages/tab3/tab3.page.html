@@ -1,0 +1,33 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar>
+    <ion-title> Favoritos </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" mode="ios">
+  <ion-header collapse="condense">
+    <ion-toolbar class="ion-padding-horizontal">
+      <h1 style="font-size: 26px; font-weight: 600; margin-top: 0px">
+        Take a look inside <br />your favorites
+      </h1>
+    </ion-toolbar>
+    <ion-searchbar
+      mode="md"
+      class="ion-padding-horizontal"
+      placeholder="Find Headers"
+      inputmode="text"
+      [(ngModel)]="searchText"
+      (ionChange)="search()"
+      showCancelButton="never"
+    ></ion-searchbar>
+  </ion-header>
+
+  <ion-spinner name="circular" *ngIf="!articlesAreLoaded"></ion-spinner>
+
+  <app-articles *ngIf="articles.length > 0" [articles]="filtredArticles">
+  </app-articles>
+
+  <div *ngIf="articles.length <= 0">
+    <ion-title>No tienes favoritos:c</ion-title>
+  </div>
+</ion-content>

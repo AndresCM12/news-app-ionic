@@ -1,0 +1,37 @@
+<ion-card mode="md" style="border-radius: 15px; box-shadow: none">
+  <ion-img
+    *ngIf="article.urlToImage"
+    (click)="openArticle()"
+    (ionImgDidLoad)="onImageLoaded()"
+    [src]="article.urlToImage"
+    (ionError)="onImageError()"
+    [ngClass]="{ 'ion-hide': imageError }"
+  >
+  </ion-img>
+
+  <ion-spinner *ngIf="!imageLoaded"></ion-spinner>
+
+  <ion-card-title class="ion-padding-horizontal ion-margin-top">
+    {{ article.title }}
+  </ion-card-title>
+
+  <ion-card-content *ngIf="article.description">
+    <p>{{ article.description }}</p>
+  </ion-card-content>
+
+  <ion-card-subtitle class="ion-margin-horizontal ion-margin-top">
+    <ion-row class="ion-align-items-center subtitle">
+      <ion-col class="link-wrapper" (click)="openArticle()">
+        <span color="primary" class="text-primary">
+          <ion-icon name="newspaper-outline"></ion-icon
+        ></span>
+        <span class="article-source-name">{{ article.source.name }}</span>
+      </ion-col>
+      <ion-col class="button-wrapper">
+        <ion-button (click)="onOpenMenu()" fill="clear" size="small">
+          <ion-icon name="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-subtitle>
+</ion-card>

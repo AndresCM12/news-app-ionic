@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" mode="ios" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title> {{selectedCategory | titlecase}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" mode="ios" scrollEvents="true">
+  <ion-header collapse="condense">
+    <ion-toolbar class="ion-padding-horizontal">
+      <h1 style="font-size: 26px; font-weight: 600; margin-top: 0px">
+        Search in our <br />categories
+      </h1>
+    </ion-toolbar>
+    <ion-searchbar
+      mode="md"
+      class="ion-padding-horizontal"
+      placeholder="Find Headers"
+      inputmode="text"
+      [(ngModel)]="searchText"
+      (ionChange)="search()"
+      showCancelButton="never"
+    ></ion-searchbar>
+  </ion-header>
+
+  <ion-spinner name="circular" *ngIf="!articlesAreLoaded"></ion-spinner>
+
+  <app-articles [articles]="filtredArticles"></app-articles>
+
+  <ion-infinite-scroll
+    *ngIf="!endline"
+    threshold="25%"
+    position="bottom"
+    (ionInfinite)="loadData($event)"
+  >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-list *ngIf="endline" class="ion-margin" mode="ios">
+    <ion-item>
+      <ion-label class="ion-text-center"
+        >LLegaste al final de la sección :c</ion-label
+      >
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-segment
+  scrollable
+  [value]="selectedCategory"
+  (ionChange)="segmentChanged($event)"
+  mode="md"
+>
+  <ion-segment-button *ngFor="let category of categories" [value]="category">
+    <ion-label class="ion-text-capitalize"> {{category}} </ion-label>
+  </ion-segment-button>
+</ion-segment>
